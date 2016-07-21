@@ -24877,6 +24877,10 @@
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
+	  handleSearch: function handleSearch(location) {
+	    //function that is called by WeatherForm.jsx's 'this.props.onSearch'
+	    alert(location);
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -24886,7 +24890,7 @@
 	        null,
 	        'Weather component'
 	      ),
-	      React.createElement(WeatherForm, null),
+	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
 	      React.createElement(WeatherMessage, null)
 	    );
 	  }
@@ -24898,35 +24902,41 @@
 /* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(1);
 
 	var WeatherForm = React.createClass({
-	  displayName: "WeatherForm",
+	  displayName: 'WeatherForm',
 
 	  onFormSubmit: function onFormSubmit(e) {
 	    e.preventDefault();
+	    var location = this.refs.location.value; //set variable to location value
+	    if (location.length > 0) {
+	      //check for input
+	      this.refs.location.value = ''; //clear location value
+	      this.props.onSearch(location); //run the parent onSearch function (inside weather.jsx)
+	    }
 	  },
 	  render: function render() {
 	    return React.createElement(
-	      "div",
+	      'div',
 	      null,
 	      React.createElement(
-	        "form",
-	        null,
+	        'form',
+	        { onSubmit: this.onFormSubmit },
 	        React.createElement(
-	          "div",
+	          'div',
 	          null,
-	          React.createElement("input", { type: "text", placeholder: "Enter Location" })
+	          React.createElement('input', { type: 'text', placeholder: 'Enter Location', ref: 'location' })
 	        ),
 	        React.createElement(
-	          "div",
+	          'div',
 	          null,
 	          React.createElement(
-	            "button",
+	            'button',
 	            null,
-	            "Get Weather"
+	            'Get Weather'
 	          )
 	        )
 	      )
