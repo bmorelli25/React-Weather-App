@@ -9,6 +9,7 @@
   "author": "Brandon Morelli",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.13.1",
     "express": "^4.14.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
