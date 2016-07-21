@@ -24877,11 +24877,28 @@
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
+	  getInitialState: function getInitialState() {
+	    return { //by default when we load the app we will see it 88 in Miami
+	      location: 'Miami',
+	      temp: 88
+	    };
+	  },
 	  handleSearch: function handleSearch(location) {
 	    //function that is called by WeatherForm.jsx's 'this.props.onSearch'
-	    alert(location);
+	    //faking our call for now.
+	    this.setState({
+	      location: location,
+	      temp: 23
+	    });
 	  },
 	  render: function render() {
+
+	    //get our variables from state so they can be passed as props
+	    var _state = this.state;
+	    var temp = _state.temp;
+	    var location = _state.location;
+
+
 	    return React.createElement(
 	      'div',
 	      null,
@@ -24891,7 +24908,7 @@
 	        'Weather component'
 	      ),
 	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-	      React.createElement(WeatherMessage, null)
+	      React.createElement(WeatherMessage, { location: location, temp: temp })
 	    );
 	  }
 	});
@@ -24958,13 +24975,22 @@
 	  displayName: 'WeatherMessage',
 
 	  render: function render() {
+	    //get our props from Weather.jsx
+	    var _props = this.props;
+	    var temp = _props.temp;
+	    var location = _props.location;
+
+
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(
 	        'p',
 	        null,
-	        'Return Paragraph'
+	        'It is ',
+	        temp,
+	        '° in ',
+	        location
 	      )
 	    );
 	  }
