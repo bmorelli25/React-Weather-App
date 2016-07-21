@@ -6,35 +6,46 @@ var openWeatherMap = require('openWeatherMap');
 
 var Weather = React.createClass({
   getInitialState: function () {
-    return { //by default when we load the app we will see it 88 in Miami
-      location: 'Miami',
-      temp: 88
+    return {
+      isLoading: false
     }
   },
   handleSearch: function (location) { //function that is called by WeatherForm.jsx's 'this.props.onSearch'
     var that = this;
 
+    this.setState({isLoading: true});
+
     openWeatherMap.getTemp(location).then(function (temp) {
       that.setState({
         location: location,
-        temp: temp
+        temp: temp,
+        isLoading: false
       });
     }, function (errorMessage) {
+      that.setState({isLoading: false});
       alert(errorMessage);
     });
   },
   render: function () {
 
     //get our variables from state so they can be passed as props
-    var {temp, location} = this.state;
+    var {isLoading, temp, location} = this.state;
+
+    function renderMessage () {
+      if (isLoading) {
+        return <h3>Fetching Weather...</h3>;
+      } else if (temp && location) {
+        return <WeatherMessage location={location} temp={temp}/>;
+      }
+    }
 
     return (
       <div>
         <h3>Weather component</h3>
         <WeatherForm onSearch={this.handleSearch}/>
-        <WeatherMessage location={location} temp={temp}/>
+        {renderMessage()}
       </div>
-    );
+    )
   }
 });
 
