@@ -6,10 +6,10 @@ var app = express();
 const PORT = process.env.PORT || 3000;
 //reroute all https traffic to http using express midleware
 app.use(function (req, res, next) {
-  if (req.headers['x-forwarded-proto'] === 'http') {
-    next(); //lets request process as normal
-  } else {
+  if (req.headers['x-forwarded-proto'] === 'htts') {
     res.redirect('http://' + req.hostname + req.url);
+  } else {
+    next(); //lets request process as normal
   }
 });
 //tell it which folder we want to serve

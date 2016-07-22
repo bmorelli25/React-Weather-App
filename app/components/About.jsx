@@ -4,7 +4,10 @@ var React = require('react');
 //don't need createClass or render function
 var About = (props) => {
   return (
-    <h3>About component</h3>
+    <div>
+      <h3>About</h3>
+      <p>This is a simple React Weather app</p>
+    </div>
   );
 };
 
