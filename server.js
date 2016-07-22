@@ -2,9 +2,19 @@ var express = require('express');
 
 //Create our App
 var app = express();
+//set enviornment variable, if there isn't one (aka locally) use 3000
+const PORT = process.env.PORT || 3000;
+//reroute all https traffic to http using express midleware
+app.use(function (req, res, next) {
+  if (req.headers['x-forwarded-proto'] === 'http') {
+    next(); //lets request process as normal
+  } else {
+    res.redirect('http://' + req.hostname + req.url);
+  }
+});
 //tell it which folder we want to serve
 app.use(express.static('public'));
 //start the server
-app.listen(3000, function() {
-  console.log('Express Server is up on port 3000');
+app.listen(PORT, function() {
+  console.log('Express Server is up on port ' + PORT);
 });
