@@ -32,6 +32,13 @@ var Weather = React.createClass({
       });
     });
   },
+  componentDidMount: function () {
+    var location = this.props.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+    }
+  },
   render: function () {
 
     //get our variables from state so they can be passed as props
