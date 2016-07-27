@@ -16,7 +16,9 @@ var Weather = React.createClass({
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     openWeatherMap.getTemp(location).then(function (temp) {
@@ -37,6 +39,16 @@ var Weather = React.createClass({
 
     if (location && location.length > 0) {
       this.handleSearch(location);
+      window.location.hash = '#/'; //reset url after the search
+    }
+  },
+  componentWillReceiveProps: function (newProps) { //called any time components props get updated
+    //we can pull updated location and make the search just like above
+    var location = newProps.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/'; //reset url after the search
     }
   },
   render: function () {
