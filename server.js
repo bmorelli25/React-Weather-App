@@ -6,7 +6,7 @@ var app = express();
 const PORT = process.env.PORT || 3000;
 //reroute all https traffic to http using express midleware
 app.use(function (req, res, next) {
-  if (req.headers['x-forwarded-proto'] === 'htts') {
+  if (req.headers['x-forwarded-proto'] === 'https') {
     res.redirect('http://' + req.hostname + req.url);
   } else {
     next(); //lets request process as normal
