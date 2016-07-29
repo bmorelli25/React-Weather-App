@@ -1,5 +1,7 @@
 $space-large: 2.5rem;
-$title-color: #01579B;
+$title-color: #2196F3;
+$nav-bar-color: #64B5F6;
+$light-blue: #BBDEFB;
 
 .page-title {
   color: $title-color;
@@ -9,4 +11,25 @@ $title-color: #01579B;
 
 input[type=search] {
   box-shadow: none;
+}
+
+.top-bar, .top-bar ul {
+  background-color: $nav-bar-color;
+}
+
+.menu li {
+  color: $light-blue;
+  a {
+    color: white;
+  }
+}
+
+.menu li .button {
+  color: $title-color;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.custom-search-class {
+  border-radius: 5px;
 }
