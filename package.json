@@ -4,7 +4,7 @@
   "description": "Simple React App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha app/tests/**/*.js",
     "start": "node server.js"
   },
   "author": "Brandon Morelli",
