@@ -18,13 +18,15 @@ var Weather = React.createClass({
       isLoading: true,
       errorMessage: undefined,
       location: undefined,
-      temp: undefined
+      temp: undefined,
+      weather: undefined
     });
 
-    openWeatherMap.getTemp(location).then(function (temp) {
+    openWeatherMap.getTemp(location).then(function (obj) {
       that.setState({
         location: location,
-        temp: temp,
+        temp: obj.temp,
+        weather: obj.weather,
         isLoading: false
       });
     }, function (e) {
@@ -54,13 +56,13 @@ var Weather = React.createClass({
   render: function () {
 
     //get our variables from state so they can be passed as props
-    var {isLoading, temp, location, errorMessage} = this.state;
+    var {isLoading, temp, location, weather, errorMessage} = this.state;
 
     function renderMessage () {
       if (isLoading) {
         return <h3 className="text-center">Fetching Weather...</h3>;
-      } else if (temp && location) {
-        return <WeatherMessage location={location} temp={temp}/>;
+      } else if (temp && location && weather) {
+        return <WeatherMessage location={location} temp={temp} weather={weather}/>;
       }
     }
 
