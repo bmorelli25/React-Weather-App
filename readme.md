@@ -12,3 +12,8 @@ Simple [React](https://facebook.github.io/react/) web application written with j
 * [Express](https://expressjs.com/) for a simple server to run our application
 * [Foundation](http://foundation.zurb.com/) for styling
 * [Sass Loader](https://github.com/jtangelder/sass-loader) & [node-sass](https://github.com/sass/node-sass)
+
+####API KEY
+To securely enter you OpenWeatherMap API key, simply create a `.env` file in the project root and add the following line:
+`API_KEY=yourkeyhere`.
+You will then have access to API key as a global variable anywhere in the client.

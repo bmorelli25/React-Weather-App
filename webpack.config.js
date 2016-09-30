@@ -1,3 +1,4 @@
+require('dotenv').config()
 var webpack = require('webpack');
 
 module.exports = {
@@ -13,7 +14,10 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
-    })
+    }),
+		new webpack.DefinePlugin({
+			API_KEY: JSON.stringify(process.env.API_KEY)
+		})
   ],
   output: {
     path: __dirname,
