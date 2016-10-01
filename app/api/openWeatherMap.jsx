@@ -11,7 +11,10 @@ module.exports = {
       if (res.data.cod && res.data.message) { //if true, something went wrong
         throw new Error(res.data.message); //send to error handler in Weather.jsx
       } else {
-        return res.data.main.temp; //send to success case in Weather.jsx
+        return {
+        	temp: res.data.main.temp,
+        	weather: res.data.weather
+        }; //send to success case in Weather.jsx
       }
     }, function (res) {
       throw new Error(res.data.message); //if api sends an error, we pull then show to user
