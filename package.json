@@ -24,6 +24,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "dotenv": "^2.0.0",
     "enzyme": "^2.4.1",
     "foundation-sites": "^6.2.0",
     "jquery": "^2.2.1",
