@@ -15,7 +15,7 @@ var WeatherMessage = React.createClass({
         'Clouds': "Cloudy with a chance of meatballs"
       };
       return conditionMap[condition] ? conditionMap[condition] : '';
-    };
+    }
   },
   render: function() {
   	var {temp, location} = this.props;

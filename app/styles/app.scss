@@ -1,67 +1,121 @@
+$white: white;
 $space-large: 2.5rem;
-$title-color: #2196F3;
-$nav-bar-color: #64B5F6;
-$light-blue: #BBDEFB;
+$title-color: $white;
+$nav-bar-color: transparent;
+$light-gray: #eee;
+$black: black;
+$black-blur: 0px 0px 10px $black;
 
-.page-title {
-  color: $title-color;
-  margin-top: $space-large;
-  margin-bottom: $space-large;
+
+@mixin text-shadow {
+	text-shadow: $black-blur;
 }
 
-input[type=search] {
-  box-shadow: none;
+body {
+	color: $white;
+	@include text-shadow;
+}
+
+.page-title {
+	color: $title-color;
+	margin-top: $space-large;
+	margin-bottom: $space-large;
+	font-weight: bold;
+	@include text-shadow;
+	font-size: 5rem;
+}
+
+input[type=search],
+input[type=sear]:focus {
+	font-size: 2rem;
+	text-align: center;
+	@include text-shadow;
+	box-shadow: none !important;
+	background: none !important;
+	border-width: 0 !important;
+	color: $white !important;
+
+	&::-webkit-input-placeholder {
+		color: $white;
+	}
+
+	&:-moz-placeholder {
+		color: $white;
+	}
+
+	&::-moz-placeholder {
+		color: $white;
+	}
+
+	&:-ms-input-placeholder {
+		color: $white;
+	}
 }
 
 .top-bar, .top-bar ul {
-  background-color: $nav-bar-color;
+	background-color: $nav-bar-color;
 }
 
 .menu li {
-  color: $light-blue;
-  a {
-    color: white;
-  }
+	color: $light-gray;
+	text-shadow: $black-blur;
+	a {
+		color: white;
+	}
 }
 
 .menu li .button {
-  color: $title-color;
-  background-color: white;
-  border-radius: 5px;
+	color: $title-color;
+	background-color: white;
+	border-radius: 5px;
 }
 
 .custom-search-class {
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
-.condition-thunderstorm {
-	background-image: url('https://source.unsplash.com/td7G4W1HSIE');
+.condition {
 	background-size: cover;
-}
 
-.condition-drizzle {
-	background-image: url('https://source.unsplash.com/x8xsbx4zfYs');
-	background-size: cover;
-}
+	&.morning {
+		background-image: url('https://source.unsplash.com/ZBD7Wh3SJEI');
+	}
 
-.condition-rain {
-	background-image: url('https://source.unsplash.com/6B9y2VdJy_k');
-	background-size: cover;
-}
+	&.day {
+		background-image: url('https://source.unsplash.com/EILw-nEK46k');
+	}
 
-.condition-snow {
-	background-image: url('https://source.unsplash.com/67t2GJcD5PI');
-	background-size: cover;
-}
+	&.evening {
+		background-image: url('https://source.unsplash.com/eXSttBQoYbM');
+	}
 
-.condition-atmosphere {
-	background-image: url('https://source.unsplash.com/ZSI-wuA49T0');
-	background-size: cover;
-}
+	&.night {
+		background-image: url('https://source.unsplash.com/podD6kKHRl8');
+	}
 
-.condition-clouds {
-	background-image: url('https://source.unsplash.com/RmNAdoJNFJs');
-	background-size: cover;
+	&.thunderstorm {
+		background-image: url('https://source.unsplash.com/td7G4W1HSIE');
+	}
+
+	&.drizzle {
+		background-image: url('https://source.unsplash.com/x8xsbx4zfYs');
+	}
+
+	&.rain {
+		background-image: url('https://source.unsplash.com/6B9y2VdJy_k');
+	}
+
+	&.snow {
+		background-image: url('https://source.unsplash.com/67t2GJcD5PI');
+	}
+
+	&.atmosphere {
+		background-image: url('https://source.unsplash.com/ZSI-wuA49T0');
+	}
+
+	&.clouds {
+		background-image: url('https://source.unsplash.com/RmNAdoJNFJs');
+	}
 }
 
 .weather-form {
