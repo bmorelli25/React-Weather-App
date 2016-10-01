@@ -1,3 +1,11 @@
+# Node Modules
 node_modules/
+
+# Bundle File
 public/bundle.js
+
+# Enviornment Variable File
 .env
+
+# All NPM Debugging Logs
+npm-debug.log*
