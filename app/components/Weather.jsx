@@ -26,7 +26,7 @@ var Weather = React.createClass({
       that.setState({
         location: location,
         temp: currentWeather.main.temp,
-				condition: currentWeather.weather[0].id,
+				condition: currentWeather.weather[0],
         isLoading: false
       });
     }, function (e) {
@@ -61,8 +61,8 @@ var Weather = React.createClass({
     function renderMessage () {
       if (isLoading) {
         return <h3 className="text-center">Fetching Weather...</h3>;
-      } else if (temp && location) {
-        return <WeatherMessage location={location} temp={temp}/>;
+      } else if (temp && location && condition) {
+        return <WeatherMessage location={location} temp={temp} condition={condition} />;
       }
     }
 
@@ -86,7 +86,7 @@ var Weather = React.createClass({
 					'8': 'clouds'
 				}
 
-				var conditionCode = String(condition).charAt(0);
+				var conditionCode = String(condition.id).charAt(0);
 				var conditionClass = conditionMap[conditionCode] ? 'condition-' + conditionMap[conditionCode] : '';
 
 				// Works but will cause issues if body classes need to be added anywhere else
