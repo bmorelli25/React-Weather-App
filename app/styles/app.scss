@@ -70,3 +70,16 @@ input[type=search] {
 	border-radius: 5px;
 	margin-top: 40px;
 }
+
+.forecast-title {
+	color: $title-color;
+  margin-top: $space-large;
+}
+
+.forecast-container {
+	border: 1px solid #79848c;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
