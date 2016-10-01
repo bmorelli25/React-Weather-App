@@ -33,3 +33,40 @@ input[type=search] {
 .custom-search-class {
   border-radius: 5px;
 }
+
+.condition-thunderstorm {
+	background-image: url('https://source.unsplash.com/td7G4W1HSIE');
+	background-size: cover;
+}
+
+.condition-drizzle {
+	background-image: url('https://source.unsplash.com/x8xsbx4zfYs');
+	background-size: cover;
+}
+
+.condition-rain {
+	background-image: url('https://source.unsplash.com/6B9y2VdJy_k');
+	background-size: cover;
+}
+
+.condition-snow {
+	background-image: url('https://source.unsplash.com/67t2GJcD5PI');
+	background-size: cover;
+}
+
+.condition-atmosphere {
+	background-image: url('https://source.unsplash.com/ZSI-wuA49T0');
+	background-size: cover;
+}
+
+.condition-clouds {
+	background-image: url('https://source.unsplash.com/RmNAdoJNFJs');
+	background-size: cover;
+}
+
+.weather-form {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 20px 40px;
+	border-radius: 5px;
+	margin-top: 40px;
+}
