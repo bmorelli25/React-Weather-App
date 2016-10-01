@@ -26,9 +26,9 @@ module.exports = {
 		return axios.get(requestUrl).then(function (res) {
 			const apiDataHasError = res.data.cod !== '200';
 			if (apiDataHasError && res.data.message) { //if true, something went wrong
-				throw new Error(res.data.message); //send to error handler in Weather.jsx
+				throw new Error(res.data.message); //send to error handler in WeatherForecast.jsx
 			} else {
-				return res.data; //send to success case in Weather.jsx
+				return res.data; //send to success case in WeatherForecast.jsx
 			}
 		}, function (res) {
 			throw new Error(res.data.message); //if api sends an error, we pull then show to user

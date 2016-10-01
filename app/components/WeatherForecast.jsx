@@ -57,9 +57,8 @@ var DailyWeatherList = React.createClass({
 
 	render: function () {
 		const fiveDaySummary = this.getFiveDaySummary(this.props.data);
-		console.log("fiveDaySummary:",fiveDaySummary);
 		return (
-			<div className="row">
+			<div>
 				{fiveDaySummary.map(this.renderWeatherSummary)}
 			</div>
 		);
@@ -70,13 +69,13 @@ var DailyWeatherList = React.createClass({
 		const temp = weatherData.main.temp;
 		const weather = weatherData.weather[0];
 		return (
-			<div key={index} className="small-6 column">
-				<div className="forecast-container">
-					{date}
-					<br />
-					Temp: {weatherData.main.temp}&deg;
-					<br />
-					{weather.main}
+			<div className="row">
+				<div key={index} className="small-8 medium-6 small-centered column">
+					<div className="forecast-container">
+						{index === 0 ? 'Tomorrow' : date}
+						<br />
+						{weatherData.main.temp}&deg; / {weather.main}
+					</div>
 				</div>
 			</div>);
 	},
