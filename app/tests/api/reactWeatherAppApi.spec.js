@@ -14,10 +14,6 @@ describe('React Weather App API Usage', () => {
 	it('OpenWeatherMap should fetch weather for a given location', () => {
 		let fetchWeatherPromise = OpenWeatherMap.getCurrentWeather('New York City');
 		console.log(fetchWeatherPromise);
-		console.log(fetchWeatherPromise.load);
 
-		// fetchWeatherPromise.all(function(data) {
-		// 	console.log(data);
-		// });
 	});
 });
