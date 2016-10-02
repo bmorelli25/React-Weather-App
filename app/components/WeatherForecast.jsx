@@ -1,9 +1,10 @@
-var React = require('react');
+const React = require('react');
 
-var openWeatherMap = require('openWeatherMap');
-var ErrorModal = require('ErrorModal');
+const dateFormatter = require('dateFormatter');
+const openWeatherMap = require('openWeatherMap');
+const ErrorModal = require('ErrorModal');
 
-var WeatherForecast = React.createClass({
+const WeatherForecast = React.createClass({
 
 	getInitialState: function () {
 		return {
@@ -65,14 +66,14 @@ var DailyWeatherList = React.createClass({
 	},
 
 	renderWeatherSummary: function (weatherData, index) {
-		const date = this.getDate(weatherData.dt_txt);
+		const dateTimeStr = weatherData.dt_txt;
 		const temp = weatherData.main.temp;
 		const weather = weatherData.weather[0];
 		return (
 			<div key={index} className="row">
 				<div className="small-10 small-centered column">
 					<div className="forecast-container">
-						<h4>{index === 0 ? 'Tomorrow' : date}</h4>
+						<h4>{index === 0 ? 'Tomorrow' : dateFormatter.getDayDateLabel(dateTimeStr)}</h4>
 						<div className="row collapse">
 							<div className="small-2 medium-3 column weather-icon">
 								<i className={`wi wi-owm-${weather.id}`} />
@@ -89,12 +90,12 @@ var DailyWeatherList = React.createClass({
 	},
 
 	getFiveDaySummary: function (fullData) {
-		// get an array of unique dates from the returned API data
-		const dates = [... new Set(fullData.map(data => this.getDate(data.dt_txt)))];
+		// get an array of unique date strings from the returned API data
+		const dates = [... new Set(fullData.map(data => this.getDateStr(data.dt_txt)))];
 
 		const fiveDaySummary = [...dates].map((date => {
 			const threeHourlyWeatherForDay = fullData.filter(data => {
-				if (date === this.getDate(data.dt_txt)) {
+				if (date === this.getDateStr(data.dt_txt)) {
 					return data.weather;
 				}
 			});
@@ -105,7 +106,7 @@ var DailyWeatherList = React.createClass({
 		return fiveDaySummary;
 	},
 
-	getDate: function (dateTimeStr) {
+	getDateStr: function (dateTimeStr) {
 		const dateTime = dateTimeStr.split(" ");
 		return dateTime[0];
 	}
