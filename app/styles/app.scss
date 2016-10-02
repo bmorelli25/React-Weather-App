@@ -13,6 +13,15 @@ input[type=search] {
   box-shadow: none;
 }
 
+.top-bar {
+	display: flex;
+}
+
+.top-bar-middle {
+	margin: auto;
+	color: white;
+}
+
 .top-bar, .top-bar ul {
   background-color: $nav-bar-color;
 }
