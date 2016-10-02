@@ -1,7 +1,9 @@
 const axios = require('axios');
+const config = require("../config")
 
 const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/';
 const DEFAULT_UNIT = 'imperial';
+const API_KEY = config.API_KEY
 
 module.exports = {
 	getCurrentWeather: function (location) {

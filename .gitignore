@@ -9,3 +9,5 @@ public/bundle.js
 
 # All NPM Debugging Logs
 npm-debug.log*
+.idea/
+app/config.js
