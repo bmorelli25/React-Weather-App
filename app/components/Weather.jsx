@@ -85,15 +85,15 @@ var Weather = React.createClass({
 					'6': 'snow',
 					'7': 'atmosphere',
 					'8': 'clouds'
-				}
+				};
 
 				var conditionCode = String(condition.id).charAt(0);
-				var conditionClass = conditionMap[conditionCode] ? 'condition-' + conditionMap[conditionCode] : '';
 
-				// Works but will cause issues if body classes need to be added anywhere else
-				// Needs refactoring.
-				document.body.classList = "";
-				document.body.classList.add(conditionClass);
+				for (var key in conditionMap) {
+					if (conditionMap.hasOwnProperty(key)) {
+						document.body.classList.toggle('condition-' + conditionMap[key], conditionCode === key);
+					}
+				}
 			}
 		}
 
