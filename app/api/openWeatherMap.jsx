@@ -1,6 +1,5 @@
 const axios = require('axios');
 
-
 const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/';
 const DEFAULT_UNIT = 'imperial';
 
