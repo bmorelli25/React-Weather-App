@@ -77,13 +77,13 @@ var Weather = React.createClass({
 
     return (
       <div className={this._getWeatherBackgroundClass(condition)}>
-        <div className="columns medium-6 large-4 small-centered weather-form">
-          <h1 className="text-center page-title">Get Weather</h1>
-          <WeatherForm onSearch={this.handleSearch}/>
-          {renderMessage()}
-          {location && <WeatherForecast location={location} />}
-          {renderError()}
-        </div>
+          <div className="columns medium-6 large-4 small-centered weather-form">
+            <h1 className="text-center page-title">Get Weather</h1>
+            <WeatherForm onSearch={this.handleSearch}/>
+            {renderMessage()}
+            {location && <WeatherForecast location={location} />}
+            {renderError()}
+          </div>
       </div>
     )
   },
