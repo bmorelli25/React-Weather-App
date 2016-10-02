@@ -75,38 +75,35 @@ var Weather = React.createClass({
       }
     }
 
-		function setBodyClass () {
-			if (typeof condition != 'undefined') {
-				// Map condition codes to conditions using http://openweathermap.org/weather-conditions
-				var conditionMap = {
-					'2': 'thunderstorm',
-					'3': 'drizzle',
-					'5': 'rain',
-					'6': 'snow',
-					'7': 'atmosphere',
-					'8': 'clouds'
-				}
-
-				var conditionCode = String(condition.id).charAt(0);
-				var conditionClass = conditionMap[conditionCode] ? 'condition-' + conditionMap[conditionCode] : '';
-
-				// Works but will cause issues if body classes need to be added anywhere else
-				// Needs refactoring.
-				document.body.classList = "";
-				document.body.classList.add(conditionClass);
-			}
-		}
-
     return (
-      <div>
-        <h1 className="text-center page-title">Get Weather</h1>
-        <WeatherForm onSearch={this.handleSearch}/>
-        {renderMessage()}
-        {location && <WeatherForecast location={location} />}
-        {renderError()}
-				{setBodyClass()}
+      <div className={this._getWeatherBackgroundClass(condition)}>
+        <div className="columns medium-6 large-4 small-centered weather-form">
+          <h1 className="text-center page-title">Get Weather</h1>
+          <WeatherForm onSearch={this.handleSearch}/>
+          {renderMessage()}
+          {location && <WeatherForecast location={location} />}
+          {renderError()}
+        </div>
       </div>
     )
+  },
+  _getWeatherBackgroundClass: (condition) => {
+    if (typeof condition != 'undefined') {
+      // Map condition codes to conditions using http://openweathermap.org/weather-conditions
+      var conditionMap = {
+        '2': 'thunderstorm',
+        '3': 'drizzle',
+        '5': 'rain',
+        '6': 'snow',
+        '7': 'atmosphere',
+        '8': 'clouds'
+      }
+
+      var conditionCode = String(condition.id).charAt(0);
+      var conditionClass = conditionMap[conditionCode] ? 'condition-background condition-' + conditionMap[conditionCode] : '';
+
+      return conditionClass;
+    }
   }
 });
 
