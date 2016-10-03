@@ -15,7 +15,7 @@ const WeatherForecast = React.createClass({
 	},
 
 	componentWillMount: function () {
-		openWeatherMap.get5DayForecast(this.props.location).then(weatherForecast => {
+		openWeatherMap.getWeather('forecast', this.props.location).then(weatherForecast => {
 			const forecastData = weatherForecast.list;
 			this.setState({
         isLoading: false,

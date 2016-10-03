@@ -13,7 +13,7 @@ var Nav = React.createClass({
     IPInfo.getLocation().then(data => {
       const location = data.city;
       if (location !== '') {
-        openWeatherMap.getCurrentWeather(location).then(currentWeather => {
+        openWeatherMap.getWeather('weather', location).then(currentWeather => {
           this.setState({
             currentLocation: location,
             temp: currentWeather.main.temp,
