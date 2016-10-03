@@ -1,3 +1,7 @@
+// Hey contributors - this file is not needed for this project.
+// It is merely here in case you need any help with ES6 arrow functions.
+// There are a lot of great examples in this file in case you're still learning the concept!
+
 //start with an array
 var names = ['Andrew', 'Julie', 'Jen'];
 
