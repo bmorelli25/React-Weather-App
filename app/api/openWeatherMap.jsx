@@ -8,8 +8,10 @@ module.exports = {
 		// if key === 'weather' : returns current weather
 		// if key === 'forecast' : returns 5 day forecast
 		var isZipCode = /^\d{5}$/.test(location);
+		var apiKey = process.env.API_KEY || API_KEY;
 		const encodedLocation = encodeURIComponent(location);
-		var requestUrl = `${OPEN_WEATHER_MAP_URL}${key}?appid=${API_KEY}&units=${DEFAULT_UNIT}`;
+
+		var requestUrl = `${OPEN_WEATHER_MAP_URL}${key}?appid=${apiKey}&units=${DEFAULT_UNIT}`;
 		requestUrl += isZipCode ? `&zip=${encodedLocation},us` : `&q=${encodedLocation}`;
 
 		return axios.get(requestUrl).then(function (res) {
