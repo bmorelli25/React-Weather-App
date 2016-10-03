@@ -1,3 +1,7 @@
+// Hey contributors - this file is not needed for this project.
+// It is merely here in case you need any help with promises.
+// There are a lot of great examples in this file in case you're still learning the concept!
+
 function getTempCallback (location, callback) {
   callback(undefined, 78); //success case
   callback('City not found'); //error case
