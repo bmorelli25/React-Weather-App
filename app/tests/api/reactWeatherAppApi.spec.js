@@ -10,46 +10,46 @@ describe('React Weather App', () => {
 			expect(OpenWeatherMap).to.exist;
 	});
 
-	// getCurrentWeather tests
+	// getWeather Current Weather tests
 	describe('Fetching current weather for a given location', () => {
 		// ways it should handle working correctly
 		it('OpenWeatherMap should fetch weather for a given location (City Name)', () => {
-			return OpenWeatherMap.getCurrentWeather('New York City').then(result => {
+			return OpenWeatherMap.getWeather('weather', 'New York City').then(result => {
 				expect(result.name).to.equal('New York');
 			});
 		});
 
 		it('OpenWeatherMap should fetch weather for a given location (City comma State Abbreviation)', () => {
-			return OpenWeatherMap.getCurrentWeather('Brooklyn,New York').then(result => {
+			return OpenWeatherMap.getWeather('weather', 'Brooklyn,New York').then(result => {
 				expect(result.name).to.equal('New York');
 			});
 		});
 
 		it('OpenWeatherMap should fetch weather for a given location (City comma State)', () => {
-			return OpenWeatherMap.getCurrentWeather('Brooklyn,New York').then(result => {
+			return OpenWeatherMap.getWeather('weather', 'Brooklyn,New York').then(result => {
 				expect(result.name).to.equal('New York');
 			});
 		});
 
 		// ways it should handle breaking
 		it('OpenWeatherMap should raise an error when given a fake location', () => {
-			return OpenWeatherMap.getCurrentWeather('89h34f98nsdv8998').catch(err => {
+			return OpenWeatherMap.getWeather('weather', '89h34f98nsdv8998').catch(err => {
 				expect(err).throw
 			});
 		});
 	});
 
-	// get5DayForecast tests
+	// getWeather 5DayForecast tests
 	describe('Fetching 5 day weather forecast for a given location', () => {
 		// ways it should handle working correctly
 		it('OpenWeatherMap should fetch 5 day weather forcast for a given location (City Name)', () => {
-			return OpenWeatherMap.get5DayForecast('Seattle').then(result => {
+			return OpenWeatherMap.getWeather('forecast', 'Seattle').then(result => {
 				expect(result.city.name);
 			});
 		});
 
 		it('OpenWeatherMap should fetches 5 days of weather', () => {
-			return OpenWeatherMap.get5DayForecast('Seattle').then(result => {
+			return OpenWeatherMap.getWeather('forecast', 'Seattle').then(result => {
 				let startDate = new Date(result.list[0].dt_txt);
 				let endDate = new Date(result.list[result.list.length-1].dt_txt);
 				let timeDifference = Math.abs(endDate - startDate);
@@ -61,7 +61,7 @@ describe('React Weather App', () => {
 		});
 
 		it('OpenWeatherMap should fetch 5 day weather forcast for a given location (City Name)', () => {
-			return OpenWeatherMap.get5DayForecast('asdf').catch(err => {
+			return OpenWeatherMap.getWeather('forecast', 'asdf').catch(err => {
 				expect(err).throw;
 			});
 		});
