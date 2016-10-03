@@ -15,6 +15,10 @@ input[type=search] {
 
 .top-bar {
 	display: flex;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
 }
 
 .top-bar-middle {
@@ -37,6 +41,10 @@ input[type=search] {
   color: $title-color;
   background-color: white;
   border-radius: 5px;
+}
+
+.weather-background {
+	background-attachment: fixed;
 }
 
 .custom-search-class {
@@ -77,7 +85,8 @@ input[type=search] {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 20px 40px;
 	border-radius: 5px;
-	margin-top: 40px;
+	margin-top: 80px;
+	margin-bottom: 40px;
 }
 
 .forecast-title {
