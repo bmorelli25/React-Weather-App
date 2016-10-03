@@ -7,11 +7,13 @@ module.exports = {
 	getWeather: function (key, location) {
 		// if key === 'weather' : returns current weather
 		// if key === 'forecast' : returns 5 day forecast
+		var isZipCode = /^\d{5}$/.test(location);
 		const encodedLocation = encodeURIComponent(location);
-		const requestUrl = `${OPEN_WEATHER_MAP_URL}${key}?appid=${API_KEY}&units=${DEFAULT_UNIT}&q=${encodedLocation}`;
+		var requestUrl = `${OPEN_WEATHER_MAP_URL}${key}?appid=${API_KEY}&units=${DEFAULT_UNIT}`;
+		requestUrl += isZipCode ? `&zip=${encodedLocation},us` : `&q=${encodedLocation}`;
 
 		return axios.get(requestUrl).then(function (res) {
-			const apiDataHasError = res.data.cod !== '200'
+			const apiDataHasError = res.data.cod !== '200';
 			if (apiDataHasError && res.data.message) { //if true, something went wrong
 				throw new Error(res.data.message); //send to error handler in Weather.jsx
 			} else {
