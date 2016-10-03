@@ -2,6 +2,7 @@
 
 const assert = require('chai').assert;
 const expect = require('chai').expect;
+require('dotenv').config();
 const OpenWeatherMap = require('../../api/openWeatherMap.jsx');
 
 describe('React Weather App', () => {
