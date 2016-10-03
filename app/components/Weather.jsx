@@ -13,7 +13,6 @@ var Weather = React.createClass({
     }
   },
   handleSearch: function (location) { //function that is called by WeatherForm.jsx's 'this.props.onSearch'
-    var that = this;
 
     this.setState({
       isLoading: true,
@@ -23,15 +22,15 @@ var Weather = React.createClass({
 			condition: undefined
     });
 
-    openWeatherMap.getWeather('weather', location).then(function (currentWeather) {
-      that.setState({
+    openWeatherMap.getWeather('weather', location).then(currentWeather => {
+      this.setState({
         location: location,
         temp: currentWeather.main.temp,
 				condition: currentWeather.weather[0],
         isLoading: false
       });
-    }, function (e) {
-      that.setState({
+    }, e => {
+      this.setState({
         isLoading: false,
         errorMessage: e.message
       });
