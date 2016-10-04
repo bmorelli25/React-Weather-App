@@ -13,8 +13,10 @@
     "axios": "^0.13.1",
     "express": "^4.14.0",
     "react": "^0.14.7",
+    "react-autosuggest": "^6.0.4",
     "react-dom": "^0.14.7",
-    "react-router": "^2.0.0"
+    "react-router": "^2.0.0",
+    "react-typeahead": "^2.0.0-alpha.5"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
