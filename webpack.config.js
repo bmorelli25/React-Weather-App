@@ -16,7 +16,7 @@ module.exports = {
       'jQuery': 'jquery'
     }),
 		new webpack.DefinePlugin({
-			API_KEY: JSON.stringify(process.env.API_KEY)
+			API_KEY: JSON.stringify(process.env.API_KEY),
 		})
   ],
   output: {

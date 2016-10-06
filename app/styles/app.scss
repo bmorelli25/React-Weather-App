@@ -96,3 +96,27 @@ input[type=search] {
 .weather-icon {
 	font-size: 2rem;
 }
+
+.react-autosuggest__input {
+	border-radius: 5px
+}
+
+.react-autosuggest__input:focus {
+	outline: none;
+}
+
+.react-autosuggest__suggestions-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+	cursor: pointer;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+
+.react-autosuggest__suggestion--focused {
+	background-color: #ddd;
+}

@@ -13,5 +13,4 @@ module.exports = {
 			throw new Error(res.data.message); //if api sends an error, we pull then show to user
 		});
 	}
-
 };
