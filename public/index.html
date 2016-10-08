@@ -8,9 +8,37 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/font/weathericons-regular-webfont.woff">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/font/weathericons-regular-webfont.woff2">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE&v=3.exp&libraries=places"></script>
+
 </head>
 <body>
   <div id="app"></div>
+
+  <script type="text/javascript">
+		var autocomplete;
+		function initialize() {
+
+			var input = document.getElementById('searchTextField');
+			autocomplete = new google.maps.places.Autocomplete(input);
+			google.maps.event.addDomListener(autocomplete, 'place_changed', function(){
+				console.log(autocomplete.getPlace().geometry.location.lat());
+			});
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);</script>
+
+  <script type="text/javascript">
+		var autocomplete;
+		function initialize() {
+
+			var input = document.getElementById('searchTextField2');
+			autocomplete = new google.maps.places.Autocomplete(input);
+			google.maps.event.addDomListener(autocomplete, 'place_changed', function(){
+				console.log(autocomplete.getPlace().geometry.location.lat());
+			});
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);</script>
+  
   <script src="bundle.js"></script>
 </body>
 </html
