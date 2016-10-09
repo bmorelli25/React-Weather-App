@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import WeatherMessage, { conditionMap }  from '../../components/WeatherMessage.jsx';
 
-describe.only('Weather Message', () => {
+describe('Weather Message', () => {
 	it('should render', () => {
 		const message = shallow(<WeatherMessage location="" temp={45} condition={{}}/>);
 		expect(message).to.exist;
