@@ -38,7 +38,8 @@ module.exports = {
       ErrorModal: 'app/components/ErrorModal.jsx',
       dateFormatter: 'app/utils/dateFormatter.jsx',
       applicationStyles: 'app/styles/app.scss',
-      ipInfo: 'app/api/ipInfo.jsx'
+      ipInfo: 'app/api/ipInfo.jsx',
+      GoogleAutocomplete: 'app/components/GoogleAutocomplete.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
