@@ -9,3 +9,6 @@ public/bundle.js
 
 # All NPM Debugging Logs
 npm-debug.log*
+
+# Editors
+.vscode

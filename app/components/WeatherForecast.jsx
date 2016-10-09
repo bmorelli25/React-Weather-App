@@ -1,8 +1,8 @@
 const React = require('react');
 
-const dateFormatter = require('dateFormatter');
-const openWeatherMap = require('openWeatherMap');
-const ErrorModal = require('ErrorModal');
+const dateFormatter = require('../utils/dateFormatter.jsx');
+const openWeatherMap = require('../api/openWeatherMap.jsx');
+const ErrorModal = require('./ErrorModal.jsx');
 
 const WeatherForecast = React.createClass({
 
