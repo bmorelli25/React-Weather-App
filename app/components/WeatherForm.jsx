@@ -6,7 +6,7 @@ var WeatherForm = React.createClass({
     e.preventDefault();
     var location = this.refs.googleAutoComplete.getLocation(); //set variable to location value
     if (location.length > 0){ //check for input
-	  this.refs.googleAutoComplete.clearLocation(); //clear location value
+	  	this.refs.googleAutoComplete.clearLocation(); //clear location value
       this.props.onSearch(location); //run the parent onSearch function (inside weather.jsx)
     }
   },
@@ -15,10 +15,10 @@ var WeatherForm = React.createClass({
       <div>
         <form onSubmit={this.onFormSubmit}>
           <div>
-	  <GoogleAutocomplete
-	    style={{width: '90%'}}
-	    ref="googleAutoComplete"
-	  />
+	  			<GoogleAutocomplete
+	    			style={{width: '90%'}}
+	    			ref="googleAutoComplete"
+	  				/>
           </div>
           <div>
             <button className="button hollow expanded custom-search-class">Get Weather</button>
