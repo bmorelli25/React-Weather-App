@@ -1,10 +1,10 @@
 var React = require('react');
 
-var WeatherForm = require('WeatherForm');
-var WeatherMessage = require('WeatherMessage');
-var WeatherForecast = require('WeatherForecast');
-var openWeatherMap = require('openWeatherMap');
-var ErrorModal = require('ErrorModal');
+var WeatherForm = require('./WeatherForm.jsx');
+var WeatherMessage = require('./WeatherMessage.jsx');
+var WeatherForecast = require('./WeatherForecast.jsx');
+var openWeatherMap = require('../api/openWeatherMap.jsx');
+var ErrorModal = require('./ErrorModal.jsx');
 
 var Weather = React.createClass({
   getInitialState: function () {
