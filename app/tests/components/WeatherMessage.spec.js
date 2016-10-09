@@ -1,10 +1,9 @@
 'use strict';
 
-const React = require('react');
-const shallow = require('enzyme').shallow;
-const expect = require('chai').expect;
-
-const WeatherMessage = require('../../components/WeatherMessage.jsx');
+import React from 'react';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
+import WeatherMessage, { conditionMap }  from '../../components/WeatherMessage.jsx';
 
 describe.only('Weather Message', () => {
 	it('should render', () => {
@@ -28,7 +27,7 @@ describe.only('Weather Message', () => {
 		const condition = {
 			main: 'Clear'
 		};
-		const conditionValue = 'Clear blue skies'; // From WeatherMessage.jsx
+		const conditionValue = conditionMap['Clear'];
 		const message = shallow(<WeatherMessage location="" temp={45} condition={condition} />);
 		expect(message.text()).to.contain(conditionValue);
 	});
