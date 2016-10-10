@@ -3,38 +3,10 @@ var React = require('react');
 var dateFormatter = require('../utils/dateFormatter.jsx');
 var openWeatherMap = require('../api/openWeatherMap.jsx');
 var ErrorModal = require('./ErrorModal.jsx');
+var WeatherForecastDay = require('./WeatherForecastDay.jsx');
+var weatherArrayTemp = require('./WeatherArrayTemp.jsx');
 
-// var WeatherForecast = React.createClass({
-//
-//
-//
-// 	render: function () {
-// 		const { isLoading, errorMessage } = this.state;
-// 		const hasError = !isLoading && errorMessage;
-// 		return (
-// 			<div>
-// 				{hasError ? <ErrorModal message={errorMessage} /> : this.renderForecast()}
-// 			</div>
-// 		);
-// 	},
-//
-//   renderForecast: function() {
-//   	if (this.state.isLoading) {
-//   		return <h3 className="text-center">Fetching 5-Day Forecast...</h3>;
-//   	}
-//
-//   	return (
-// 			<div>
-// 				<h4 className="forecast-title">Forecast for next 5 days</h4>
-// 				<DailyWeatherList data={this.state.data} />
-// 			</div>
-// 		);
-//   }
-//
-// });
-
-//var DailyWeatherList = React.createClass({
-var WeatherForecast = React.createClass({
+var WeatherForecastList = React.createClass({
 
 	getInitialState: function () {
 		console.log("1");
@@ -114,6 +86,7 @@ var WeatherForecast = React.createClass({
 		return dateTime[0];
 	},
 
+	//CHECKS IF DATA HAS BEEN FETCHED. IF SO, FORMATS RETURNED DATA. CALLED BY RENDER()
 	renderForecast: function() {
 		console.log("2");
   	if (this.state.isLoading) {
@@ -129,6 +102,7 @@ var WeatherForecast = React.createClass({
 		);
   },
 
+	//RENDERS AN ERROR IF ENCOUNTERED. CALLED BY RENDER()
 	renderError: function () {
 		if (typeof errorMessage === 'string'){
 			return (
@@ -140,17 +114,24 @@ var WeatherForecast = React.createClass({
 	render: function () {
 		//const fiveDaySummary = this.getFiveDaySummary();
 
+		var renderDays = () => {
+			return weatherArrayTemp.map((day) => {
+				return <WeatherForecastDay key={day.dt} {...day}/>
+			})
+		};
+
 		return (
 			<div>
 				<p>Hello</p>
 				{this.renderForecast()}
 				{this.renderError()}
+				{renderDays()}
 			</div>
 		);
 	}
 });
 
-module.exports = WeatherForecast;
+module.exports = WeatherForecastList;
 
 // {this.renderForecast()}
 // {fiveDaySummary.map(this.renderWeatherSummary)}
