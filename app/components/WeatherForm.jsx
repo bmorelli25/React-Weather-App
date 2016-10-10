@@ -11,7 +11,7 @@ var WeatherForm = React.createClass({
 		}
 	},
 	tempChange: function() {
-		var tempType = (this.refs.temp_c.checked)? 'C' : 'F'
+		var tempType = (this.refs.temp_c.checked) ? 'C' : 'F'
 		this.props.onTypeChange(tempType);
 	},
 	render: function() {
