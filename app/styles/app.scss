@@ -1,7 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
 $space-large: 2.5rem;
 $title-color: #2196F3;
 $nav-bar-color: #64B5F6;
 $light-blue: #BBDEFB;
+$font-family : 'Raleway', sans-serif;
+
+*,body{
+  font-family : $font-family;
+}
 
 .page-title {
   color: $title-color;
@@ -51,6 +57,8 @@ input[type=search] {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
 }
 
 .condition-drizzle {
@@ -61,6 +69,8 @@ input[type=search] {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
 }
 
 .condition-rain {
@@ -71,6 +81,8 @@ input[type=search] {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
 }
 
 .condition-snow {
@@ -81,6 +93,8 @@ input[type=search] {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
 }
 
 .condition-atmosphere {
@@ -91,6 +105,8 @@ input[type=search] {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
 }
 
 .condition-clouds {
@@ -101,6 +117,8 @@ input[type=search] {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";
 }
 
 .weather-form {
@@ -113,6 +131,7 @@ input[type=search] {
 .forecast-title {
 	color: $title-color;
   margin-top: $space-large;
+  text-align : center;
 }
 
 .forecast-container {
