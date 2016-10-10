@@ -23,7 +23,7 @@ var WeatherForm = React.createClass({
 					<div>
 						<GoogleAutocomplete
 							style={{width: '90%'}}
-							ref='googleAutoComplete'
+							ref="googleAutoComplete"
 						/>
 					</div>
 					<div>
