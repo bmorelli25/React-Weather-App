@@ -20,7 +20,7 @@ var WeatherMessage = React.createClass({
   render: function() {
   	var {temp, location} = this.props;
     return (
-	  	<div>
+	  	<div className="current-weather">
 	      <h3 className="text-center">It is {temp}&deg; in {location}</h3>
 	      <h3 className="text-center">{this.generateTip()}</h3>
 	    </div>

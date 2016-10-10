@@ -45,7 +45,7 @@ const WeatherForecast = React.createClass({
   	}
 
   	return (
-			<div>
+			<div className="forecast-container">
 				<h4 className="forecast-title">Forecast for next 5 days</h4>
 				<DailyWeatherList data={this.state.data} />
 			</div>
@@ -59,7 +59,7 @@ var DailyWeatherList = React.createClass({
 	render: function () {
 		const fiveDaySummary = this.getFiveDaySummary(this.props.data);
 		return (
-			<div>
+			<div className="small-12 days">
 				{fiveDaySummary.map(this.renderWeatherSummary)}
 			</div>
 		);

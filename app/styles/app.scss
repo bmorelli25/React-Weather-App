@@ -1,98 +1,232 @@
-$space-large: 2.5rem;
-$title-color: #2196F3;
-$nav-bar-color: #64B5F6;
-$light-blue: #BBDEFB;
+$space-sm: 0.625rem;
+$space-md: 1.25rem;
+$space-lg: 2.5rem;
 
-.page-title {
-  color: $title-color;
-  margin-top: $space-large;
-  margin-bottom: $space-large;
-}
+$nav-bar-color: #ACD9E0;
+
+$royal-blue: #1444A1;
+$light-blue: #D0EEEE;
+$grey: #958585;
+$red: #E04343;
+
+$border-rad: 2px;
+
+
+// Inputs & buttons
 
 input[type=search] {
   box-shadow: none;
 }
 
-.top-bar {
-	display: flex;
-}
-
-.top-bar-middle {
-	margin: auto;
-	color: white;
-}
-
-.top-bar, .top-bar ul {
-  background-color: $nav-bar-color;
-}
-
-.menu li {
-  color: $light-blue;
-  a {
-    color: white;
-  }
-}
-
-.menu li .button {
-  color: $title-color;
-  background-color: white;
-  border-radius: 5px;
+.button.hollow {
+  border-color: $royal-blue;
+  color: $royal-blue;
 }
 
 .custom-search-class {
-  border-radius: 5px;
+  border-radius: $border-rad;
+}
+
+
+// Navigation
+
+.top-bar {
+  background-color: $nav-bar-color;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  .top-bar-middle {
+    color: white;
+    margin: auto;
+  }
+
+  .top-bar-right {
+    display: none;
+  }
+
+  .menu {
+    background-color: $nav-bar-color;
+
+    li {
+      color: $light-blue;
+      padding-right: $space-sm;
+    }
+
+    a {
+      color: white;
+    }
+
+    input[type=search],
+    .button {
+      border-color: $light-blue;
+      height: $space-lg;
+      padding: $space-sm;
+    }
+
+    input[type=search] {
+      max-width: initial;
+      padding-right: $space-lg;
+    }
+
+    .button {
+      background-color: white;
+      border-radius: $border-rad;
+      color: $royal-blue;
+      margin-right: 0;
+    }
+  }
+}
+
+
+// Main content
+
+.weather-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: $border-rad;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+  margin-top: $space-lg;
+  margin-bottom: $space-lg;
+  padding: $space-lg $space-lg;
+
+  .page-title {
+    color: $royal-blue;
+    margin: 0;
+    padding-bottom: $space-lg;
+  }
+
+  .current-weather {
+    padding-top: $space-md;
+  }
+
+  .forecast-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+  }
+
+  .forecast-title {
+    color: $royal-blue;
+    margin-top: $space-lg;
+    width: 100%;
+  }
+
+  .days {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .day {
+    border: 1px solid $grey;
+    border-radius: $border-rad;
+    display: inline-block;
+    margin-top: $space-sm;
+    margin-bottom: $space-sm;
+    padding-top: $space-sm;
+    padding-bottom: $space-sm;
+    text-align: center;
+    width: 100%;
+
+    h4 {
+      margin-bottom: 0;
+    }
+  }
+
+  .weather-icon {
+    font-size: 2rem;
+    margin-top: $space-sm;
+    margin-bottom: $space-sm;
+  }
 }
 
 .condition-thunderstorm {
-	background-image: url('https://source.unsplash.com/td7G4W1HSIE');
-	background-size: cover;
+  background-image: url('https://source.unsplash.com/td7G4W1HSIE');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .condition-drizzle {
-	background-image: url('https://source.unsplash.com/x8xsbx4zfYs');
-	background-size: cover;
+  background-image: url('https://source.unsplash.com/x8xsbx4zfYs');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .condition-rain {
-	background-image: url('https://source.unsplash.com/6B9y2VdJy_k');
-	background-size: cover;
+  background-image: url('https://source.unsplash.com/6B9y2VdJy_k');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .condition-snow {
-	background-image: url('https://source.unsplash.com/67t2GJcD5PI');
-	background-size: cover;
+  background-image: url('https://source.unsplash.com/67t2GJcD5PI');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .condition-atmosphere {
-	background-image: url('https://source.unsplash.com/ZSI-wuA49T0');
-	background-size: cover;
+  background-image: url('https://source.unsplash.com/ZSI-wuA49T0');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .condition-clouds {
-	background-image: url('https://source.unsplash.com/RmNAdoJNFJs');
-	background-size: cover;
+  background-image: url('https://source.unsplash.com/RmNAdoJNFJs');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.weather-form {
-	background-color: rgba(255, 255, 255, 0.8);
-	padding: 20px 40px;
-	border-radius: 5px;
-	margin-top: 40px;
-}
+@media all and(min-width: 800px) {
 
-.forecast-title {
-	color: $title-color;
-  margin-top: $space-large;
-}
+  .top-bar-right {
+    display: block;
+  }
 
-.forecast-container {
-	border: 1px solid #79848c;
-	border-radius: 5px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-}
+  .weather-form .days {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 
-.weather-icon {
-	font-size: 2rem;
+    .day {
+      width: 19%;
+
+      h4 {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        height: 5rem;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+      }
+    }
+  }
 }

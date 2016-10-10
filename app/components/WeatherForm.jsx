@@ -20,7 +20,7 @@ var WeatherForm = React.createClass({
 							ref="googleAutoComplete"
 						/>
           </div>
-          <div>
+          <div className="medium-8 large-6 small-centered">
             <button className="button hollow expanded custom-search-class">Get Weather</button>
           </div>
         </form>

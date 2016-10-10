@@ -25,7 +25,7 @@ var GoogleAutocomplete = React.createClass({
 
 	render: function () {
 		return (
-			<div>
+			<div className="medium-8 large-6 small-centered">
 				<input type="search" className="custom-search-class" placeholder="Search weather by city" ref="location"/>
 			</div>
 		);
