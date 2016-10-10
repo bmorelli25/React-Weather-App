@@ -11,7 +11,7 @@ export const conditionMap = {
 	'Clouds': "Cloudy with a chance of meatballs"
 };
 
-export default class WeatherMessage extends Component {
+class WeatherMessage extends Component {
 	generateTip() {
 		const condition = String(this.props.condition.main);
 		if (condition != 'undefined') {
@@ -39,7 +39,10 @@ export default class WeatherMessage extends Component {
 WeatherMessage.propTypes = {
 	temp: PropTypes.number.isRequired,
 	location: PropTypes.string.isRequired,
+	tempType: PropTypes.string.isRequired,
 	condition: PropTypes.shape({
 		main: PropTypes.string.isRequired
 	}).isRequired
 };
+
+module.exports = WeatherMessage
