@@ -1,17 +1,19 @@
 var React = require('react');
-var moment = require('moment');
 
 var openWeatherMap = require('../api/openWeatherMap.jsx');
 var ErrorModal = require('./ErrorModal.jsx');
 
 var WeatherForecastDay = React.createClass({
-
 	render: function () {
-		const date = this.props.date_text;
-		const temp = this.props.main.temp;
-		const weather = this.props.weather[0];
-		var todaysDate = moment().date();
+		var date = this.props.date_text;
+		var temp = this.props.main.temp;
+		var weather = this.props.weather[0];
+		var tempType = this.props.tempType;
 		//need to add support for 'tomorrow'
+		
+		if (tempType === 'C') {
+      temp = ((temp - 32) * (5/9)).toFixed(2);
+    };
 
 		return (
 			<div>
@@ -24,7 +26,7 @@ var WeatherForecastDay = React.createClass({
 									<i className={`wi wi-owm-${weather.id}`} />
 								</div>
 								<div className="small-10 medium-9 column">
-									{temp}&deg;
+									{temp}&deg; {tempType}
 									<br />
 									{weather.description}
 								</div>

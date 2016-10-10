@@ -7,7 +7,6 @@ var WeatherForecastDay = require('./WeatherForecastDay.jsx');
 
 var WeatherForecastList = React.createClass({
 	getInitialState: function () {
-		console.log("1");
 		return {
 			isLoading: true,
 			errorMessage: null,
@@ -39,6 +38,8 @@ var WeatherForecastList = React.createClass({
 	},
 
 	render: function () {
+		var tempType = this.props.tempType;
+
 		var renderDays = () => {
 			if (this.state.isLoading) { //if data hasn't loaded yet
 				return <h3 className="text-center">Fetching 5-Day Forecast...</h3>;
@@ -51,6 +52,7 @@ var WeatherForecastList = React.createClass({
 			var weatherData = this.state.data;
 			var bank = [];
 			var today = moment().date();
+
 			var newData = weatherData.filter( (day) => {
 				var ApiDate = moment.unix(day.dt).date();
 				if (ApiDate === today) {
@@ -65,7 +67,7 @@ var WeatherForecastList = React.createClass({
 
 			return newData.map((day) => {
 				day.date_text = moment.unix(day.dt).format('dddd, MMM D');
-				return <WeatherForecastDay key={day.dt} {...day}/>
+				return <WeatherForecastDay tempType={tempType} key={day.dt} {...day}/>
 			});
 		};
 

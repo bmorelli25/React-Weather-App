@@ -20,10 +20,16 @@ export default class WeatherMessage extends Component {
 	}
 
 	render() {
-		const {temp, location} = this.props;
+		var {temp, location, tempType} = this.props;
+
+		if (tempType === 'C') {
+			temp = (temp - 32) * (5/9)
+			temp = temp.toFixed(2)
+		}
+
 		return (
 			<div>
-				<h3 className="text-center">It is {temp}&deg; in {location}</h3>
+				<h3 className="text-center">It is {temp}&deg; {tempType} in {location}</h3>
 				<h3 className="text-center">{this.generateTip()}</h3>
 			</div>
 		);
@@ -33,7 +39,10 @@ export default class WeatherMessage extends Component {
 WeatherMessage.propTypes = {
 	temp: PropTypes.number.isRequired,
 	location: PropTypes.string.isRequired,
+	tempType: PropTypes.string.isRequired,
 	condition: PropTypes.shape({
 		main: PropTypes.string.isRequired
 	}).isRequired
 };
+
+module.exports = WeatherMessage
