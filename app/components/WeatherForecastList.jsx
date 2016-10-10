@@ -33,31 +33,6 @@ var WeatherForecastList = React.createClass({
     });
 	},
 
-	getFiveDaySummary: function () {
-		console.log("4");
-		// get an array of unique date strings from the returned API data
-		const dates = [... new Set(this.state.data.map(data => this.getDateStr(data.dt_txt)))];
-
-		const fiveDaySummary = [...dates].map((date => {
-			const threeHourlyWeatherForDay = this.state.data.filter(data => {
-				if (date === this.getDateStr(data.dt_txt)) {
-					return data.weather;
-				}
-			});
-			// TODO?: think about what time's weather to return as the day's forecasted weather
-			return threeHourlyWeatherForDay[0];
-		}))
-		fiveDaySummary.splice(0, 1);	// API returns 6 days's data (i.e. includes today)
-		return fiveDaySummary;
-	},
-
-	getDateStr: function (dateTimeStr) {
-		const dateTime = dateTimeStr.split(" ");
-		return dateTime[0];
-	},
-
-
-
 	//RENDERS AN ERROR IF ENCOUNTERED. CALLED BY RENDER()
 	renderError: function () {
 		if (typeof errorMessage === 'string'){
@@ -75,14 +50,17 @@ var WeatherForecastList = React.createClass({
 
 			if (this.state.isLoading) { //if data hasn't loaded yet
 				return <h3 className="text-center">Fetching 5-Day Forecast...</h3>;
-			}
+			};
 
+			var weatherData = this.state.data;
+			console.log(weatherData);
 			//TODO Return H4 Class as well
 			//<h4 className="forecast-title">Forecast for next 5 days</h4>
-			return weatherArrayTemp.map((day) => { //once data loads
+			//return weatherArrayTemp.map((day) => { //once data loads
+			return weatherData.map((day) => {
 				day.date_text = moment.unix(day.dt).format('dddd, MMM D');
 				return <WeatherForecastDay key={day.dt} {...day}/>
-			})
+			});
 		};
 
 		return (
@@ -96,7 +74,3 @@ var WeatherForecastList = React.createClass({
 });
 
 module.exports = WeatherForecastList;
-
-// {this.renderForecast()}
-// {fiveDaySummary.map(this.renderWeatherSummary)}
-// {renderError()}
