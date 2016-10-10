@@ -18,10 +18,16 @@ var WeatherMessage = React.createClass({
     };
   },
   render: function() {
-  	var {temp, location} = this.props;
+    var {temp, location, tempType} = this.props;
+
+    if (tempType === 'C') {
+      temp = (temp - 32) * (5/9)
+      temp = temp.toFixed(2)
+    }
+
     return (
-	  	<div>
-	      <h3 className="text-center">It is {temp}&deg; in {location}</h3>
+      <div>
+        <h3 className="text-center">It is {temp}&deg; {tempType} in {location}</h3>
 	      <h3 className="text-center">{this.generateTip()}</h3>
 	    </div>
   	);
