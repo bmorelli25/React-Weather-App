@@ -47,7 +47,7 @@ const WeatherForecast = React.createClass({
   	return (
 			<div>
 				<h4 className="forecast-title">Forecast for next 5 days</h4>
-				<DailyWeatherList data={this.state.data} />
+				<DailyWeatherList data={this.state.data} tempType={this.props.tempType} />
 			</div>
 		);
   }
@@ -67,8 +67,14 @@ var DailyWeatherList = React.createClass({
 
 	renderWeatherSummary: function (weatherData, index) {
 		const dateTimeStr = weatherData.dt_txt;
-		const temp = weatherData.main.temp;
+		let temp = weatherData.main.temp;
 		const weather = weatherData.weather[0];
+
+		if (this.props.tempType === 'C') {
+      temp = (temp - 32) * (5/9)
+      temp = temp.toFixed(2)
+    }
+
 		return (
 			<div key={index} className="row">
 				<div className="small-10 small-centered column">
@@ -79,7 +85,7 @@ var DailyWeatherList = React.createClass({
 								<i className={`wi wi-owm-${weather.id}`} />
 							</div>
 							<div className="small-10 medium-9 column">
-								{weatherData.main.temp}&deg;
+								{temp}&deg;
 								<br />
 								{weather.description}
 							</div>
