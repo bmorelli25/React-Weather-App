@@ -11,7 +11,7 @@ module.exports = {
 
 	getDayDateLabel: function (dateTimeString) {
 		const date = this.getDate(dateTimeString);
-		return date.format('dddd MMM D');
+		return date.format('dddd, MMM D');
 	},
 
 	getDayLabel: function (dateTimeString) {
