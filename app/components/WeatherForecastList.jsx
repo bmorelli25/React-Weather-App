@@ -1,4 +1,5 @@
 var React = require('react');
+var moment = require('moment');
 
 var dateFormatter = require('../utils/dateFormatter.jsx');
 var openWeatherMap = require('../api/openWeatherMap.jsx');
@@ -79,6 +80,7 @@ var WeatherForecastList = React.createClass({
 			//TODO Return H4 Class as well
 			//<h4 className="forecast-title">Forecast for next 5 days</h4>
 			return weatherArrayTemp.map((day) => { //once data loads
+				day.date_text = moment.unix(day.dt).format('dddd, MMM D');
 				return <WeatherForecastDay key={day.dt} {...day}/>
 			})
 		};
@@ -86,7 +88,6 @@ var WeatherForecastList = React.createClass({
 		return (
 			<div>
 				<p>Hello</p>
-				{this.renderForecast()}
 				{this.renderError()}
 				{renderDays()}
 			</div>
