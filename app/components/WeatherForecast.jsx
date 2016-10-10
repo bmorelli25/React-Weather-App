@@ -70,19 +70,20 @@ var DailyWeatherList = React.createClass({
 		const temp = weatherData.main.temp;
 		const weather = weatherData.weather[0];
 		return (
-			<div key={index} className="row">
-				<div className="small-10 small-centered column">
-					<div className="forecast-container">
-						<h4>{index === 0 ? 'Tomorrow' : dateFormatter.getDayDateLabel(dateTimeStr)}</h4>
-						<div className="row collapse">
-							<div className="small-2 medium-3 column weather-icon">
-								<i className={`wi wi-owm-${weather.id}`} />
-							</div>
-							<div className="small-10 medium-9 column">
-								{weatherData.main.temp}&deg;
-								<br />
-								{weather.description}
-							</div>
+			<div key={index} className="day">
+				<div className="">
+					<h4>
+						<span className="dayLabel">{index === 0 ? 'Tomorrow' : dateFormatter.getDayLabel(dateTimeStr) + ', '}</span>
+						<span className="dateLabel">{index === 0 ? '\u00a0' : dateFormatter.getDateLabel(dateTimeStr)}</span>
+					</h4>
+					<div className="row collapse">
+						<div className="weather-icon">
+							<i className={`wi wi-owm-${weather.id}`} />
+						</div>
+						<div className="">
+							{weatherData.main.temp}&deg;
+							<br />
+							{weather.description}
 						</div>
 					</div>
 				</div>

@@ -9,9 +9,14 @@ module.exports = {
 		return date;
 	},
 
-	getDayDateLabel: function (dateTimeString) {
+	getDayLabel: function (dateTimeString) {
 		const date = this.getDate(dateTimeString);
-		return date.format('dddd, MMM D');
+		return date.format('dddd');
+	},
+
+	getDateLabel: function (dateTimeString) {
+		const date = this.getDate(dateTimeString);
+		return date.format('MMM D');
 	}
 
 };
