@@ -2,7 +2,7 @@ var React = require('react');
 
 var WeatherForm = require('./WeatherForm.jsx');
 var WeatherMessage = require('./WeatherMessage.jsx');
-var WeatherForecast = require('./WeatherForecast.jsx');
+var WeatherForecastList = require('./WeatherForecastList.jsx');
 var openWeatherMap = require('../api/openWeatherMap.jsx');
 var ErrorModal = require('./ErrorModal.jsx');
 
@@ -109,7 +109,7 @@ var Weather = React.createClass({
         <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch} onTypeChange={this.handleTempChange} tempType={tempType} />
         {renderMessage()}
-        {location && <WeatherForecast location={location} tempType={tempType} />}
+        {location && <WeatherForecastList location={location} tempType={tempType} />}
         {renderError()}
 				{setBodyClass()}
       </div>
