@@ -37,7 +37,7 @@ var WeatherForm = React.createClass({
 								value='C'
 								id='temp_c'
 								{...celsiusChecked} />
-							<label for='temp_c'>Celsius</label>
+							<label htmlFor='temp_c'>Celsius</label>
 
 							<input
 								onChange={this.tempChange}
@@ -46,7 +46,7 @@ var WeatherForm = React.createClass({
 								value='F'
 								id='temp_f'
 								{...fahrenheitChecked} />
-							<label for='temp_f'>Fahrenheit</label>
+							<label htmlFor='temp_f'>Fahrenheit</label>
 						</fieldset>
 					</div>
 					<div>
