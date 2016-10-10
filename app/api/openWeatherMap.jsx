@@ -13,7 +13,7 @@ module.exports = {
 
 		var requestUrl = `${OPEN_WEATHER_MAP_URL}${key}?appid=${apiKey}&units=${DEFAULT_UNIT}`;
 		requestUrl += isZipCode ? `&zip=${encodedLocation},us` : `&q=${encodedLocation}`;
-		console.log(requestUrl);
+
 		return axios.get(requestUrl).then(function (res) {
 			const apiDataHasError = res.data.cod !== '200';
 			if (apiDataHasError && res.data.message) { //if true, something went wrong

@@ -7,24 +7,22 @@ var ErrorModal = require('./ErrorModal.jsx');
 var WeatherForecastDay = React.createClass({
 
 	render: function () {
-		console.log(this.props);
-		// const fiveDaySummary = this.getFiveDaySummary();
-
-		const dateTimeStr = this.props.dt;
+		const date = this.props.date_text;
 		const temp = this.props.main.temp;
 		const weather = this.props.weather[0];
+		//need to fix 'tomorrow'
 
 		return (
 			<div className="row">
 				<div className="small-10 small-centered column">
 					<div className="forecast-container">
-						<h4>{this.props.date_text === 0 ? 'Tomorrow' : this.props.date_text}</h4>
+						<h4>{date === 0 ? 'Tomorrow' : date}</h4>
 						<div className="row collapse">
 							<div className="small-2 medium-3 column weather-icon">
 								<i className={`wi wi-owm-${weather.id}`} />
 							</div>
 							<div className="small-10 medium-9 column">
-								{this.props.main.temp}&deg;
+								{temp}&deg;
 								<br />
 								{weather.description}
 							</div>
@@ -33,14 +31,7 @@ var WeatherForecastDay = React.createClass({
 				</div>
 			</div>
 		);
-		// return (
-		// 	<h1>Weather Forecast Day</h1>
-		// );
 	}
 });
 
 module.exports = WeatherForecastDay;
-
-// {this.renderForecast()}
-// {fiveDaySummary.map(this.renderWeatherSummary)}
-// {renderError()}
