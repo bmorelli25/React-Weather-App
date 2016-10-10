@@ -6,7 +6,7 @@ var GoogleAutocomplete = React.createClass({
 		this.autocomplete = new google.maps.places.Autocomplete(this.refs.location, {
 		  types,
 		});
-		this.autocomplete.addListener('place_changed', this.onSelected.bind(this));
+		this.autocomplete.addListener('place_changed', this.onSelected);
 	},
 
 	onSelected: function () {
