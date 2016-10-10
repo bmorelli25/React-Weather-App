@@ -12,6 +12,37 @@ $red: #E04343;
 $border-rad: 2px;
 
 
+// Background
+
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+          background-size: cover;
+
+  &.condition-thunderstorm {
+    background-image: url('https://source.unsplash.com/td7G4W1HSIE');
+  }
+  &.condition-drizzle {
+    background-image: url('https://source.unsplash.com/x8xsbx4zfYs');
+  }
+  &.condition-rain {
+    background-image: url('https://source.unsplash.com/6B9y2VdJy_k');
+  }
+  &.condition-snow {
+    background-image: url('https://source.unsplash.com/67t2GJcD5PI');
+  }
+  &.condition-atmosphere {
+    background-image: url('https://source.unsplash.com/ZSI-wuA49T0');
+  }
+  &.condition-clouds {
+    background-image: url('https://source.unsplash.com/RmNAdoJNFJs');
+  }
+}
+
+
 // Inputs & buttons
 
 input[type=search] {
@@ -149,54 +180,6 @@ input[type=search] {
     margin-top: $space-sm;
     margin-bottom: $space-sm;
   }
-}
-
-.condition-thunderstorm {
-  background-image: url('https://source.unsplash.com/td7G4W1HSIE');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.condition-drizzle {
-  background-image: url('https://source.unsplash.com/x8xsbx4zfYs');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.condition-rain {
-  background-image: url('https://source.unsplash.com/6B9y2VdJy_k');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.condition-snow {
-  background-image: url('https://source.unsplash.com/67t2GJcD5PI');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.condition-atmosphere {
-  background-image: url('https://source.unsplash.com/ZSI-wuA49T0');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.condition-clouds {
-  background-image: url('https://source.unsplash.com/RmNAdoJNFJs');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 @media all and(min-width: 800px) {
