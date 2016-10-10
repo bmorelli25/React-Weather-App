@@ -8,7 +8,7 @@ var ErrorModal = require('./ErrorModal.jsx');
 
 var Weather = React.createClass({
   getInitialState: function () {
-    var tempType = (localStorage)? localStorage.getItem('react-weather-app.temperature'): 'F'
+    var tempType = (localStorage) ? localStorage.getItem('react-weather-app.temperature') : 'F'
     return {
       isLoading: false,
       tempType: tempType || 'F'
@@ -42,7 +42,7 @@ var Weather = React.createClass({
     if (localStorage) localStorage.setItem('react-weather-app.temperature', tempType)
     this.setState({
       tempType: tempType
-    })
+    });
   },
   componentDidMount: function () {
     var location = this.props.location.query.location;
