@@ -39,11 +39,9 @@ var WeatherForecastList = React.createClass({
 
 	render: function () {
 		var tempType = this.props.tempType;
-		const { isLoading } = this.state;
 
 		var renderDays = () => {
-			
-			if (isLoading) { //if data hasn't loaded yet
+			if (this.state.isLoading) { //if data hasn't loaded yet
 				return <h3 className="text-center">Fetching 5-Day Forecast...</h3>;
 			};
 
