@@ -43,6 +43,10 @@ input[type=search] {
   border-radius: 5px;
 }
 
+.condition-background {
+	overflow: auto;
+}
+
 .condition-thunderstorm {
 	background-image: url('https://source.unsplash.com/td7G4W1HSIE');
 	background-size: cover;
@@ -77,7 +81,7 @@ input[type=search] {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 20px 40px;
 	border-radius: 5px;
-	margin-top: 40px;
+	margin: 40px auto 40px;
 }
 
 .forecast-title {
