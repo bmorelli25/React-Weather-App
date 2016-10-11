@@ -1,6 +1,7 @@
 var React = require('react');
 
-var WeatherForm = require('./WeatherForm.jsx');
+import WeatherForm from './WeatherForm.jsx';
+
 var WeatherMessage = require('./WeatherMessage.jsx');
 var WeatherForecastList = require('./WeatherForecastList.jsx');
 var openWeatherMap = require('../api/openWeatherMap.jsx');
@@ -8,6 +9,7 @@ var ErrorModal = require('./ErrorModal.jsx');
 
 var Weather = React.createClass({
   getInitialState: function () {
+
     var tempType = (localStorage) ? localStorage.getItem('react-weather-app.temperature') : 'F'
     return {
       isLoading: false,
