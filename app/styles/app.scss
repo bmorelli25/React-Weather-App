@@ -62,18 +62,23 @@ input[type=search] {
 // Navigation
 
 .top-bar {
+  align-items: center;
   background-color: $nav-bar-color;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 
+  .top-bar-right {
+    align-self: flex-start;
+  }
   .top-bar-middle {
     color: white;
-    margin: auto;
+    flex-grow: 1;
+    text-align: center;
   }
-
   .top-bar-right {
+    align-self: flex-end;
     display: none;
   }
 
@@ -184,8 +189,10 @@ input[type=search] {
 
 @media all and(min-width: 800px) {
 
-  .top-bar-right {
-    display: block;
+  .top-bar {
+    .top-bar-right {
+      display: block;
+    }
   }
 
   .weather-form .days {
