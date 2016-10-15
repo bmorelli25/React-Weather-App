@@ -16,20 +16,20 @@ export default class WeatherMessage extends Component {
 		const condition = String(this.props.condition.main);
 		if (condition != 'undefined') {
 			return conditionMap[condition] ? conditionMap[condition] : '';
-		};
+		}
 	}
 
 	render() {
 		var {temp, location, tempType} = this.props;
 
 		if (tempType === 'C') {
-			temp = (temp - 32) * (5/9)
+			temp = (temp - 32) * (5/9);
 			temp = temp.toFixed(2)
 		}
 
 		return (
 			<div>
-				<h3 className="text-center">It is {temp}&deg; {tempType} in {location}</h3>
+				<h3 className="text-center">It is {Math.round(temp)}&deg;{tempType} in {location}</h3>
 				<h3 className="text-center">{this.generateTip()}</h3>
 			</div>
 		);
@@ -45,4 +45,4 @@ WeatherMessage.propTypes = {
 	}).isRequired
 };
 
-module.exports = WeatherMessage
+module.exports = WeatherMessage;

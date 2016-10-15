@@ -51,7 +51,7 @@ var Nav = React.createClass({
           </ul>
         </div>
         <div className="top-bar-middle">
-          {(this.state.currentLocation) ? `It is ${this.state.temp} degrees in ${this.state.currentLocation}` : ''}
+          {(this.state.currentLocation) ? `It is ${Math.round(this.state.temp)} degrees in ${this.state.currentLocation}` : ''}
         </div>
         <div className="top-bar-right">
           <form onSubmit={this.onSearch}>
