@@ -11,12 +11,12 @@ var WeatherForm = React.createClass({
 		}
 	},
 	tempChange: function() {
-		var tempType = (this.refs.temp_c.checked) ? 'C' : 'F'
+		var tempType = (this.refs.temp_c.checked) ? 'C' : 'F';
 		this.props.onTypeChange(tempType);
 	},
 	render: function() {
-		var celsiusChecked = { checked: this.props.tempType === 'C' }
-		var fahrenheitChecked = { checked: this.props.tempType === 'F' }
+		var celsiusChecked = { checked: this.props.tempType === 'C' };
+		var fahrenheitChecked = { checked: this.props.tempType === 'F' };
 		return (
 			<div>
 				<form onSubmit={this.onFormSubmit}>
