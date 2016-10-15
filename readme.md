@@ -1,6 +1,6 @@
 ###React Weather Application
 
-###**[Live Demo](http://still-springs-11020.herokuapp.com/)**
+###**[Live Demo](http://still-springs-11020.herokuapp.com/)** (needs to be updated. Run locally for most recent demo)
 
 -------------
 
