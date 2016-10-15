@@ -65,9 +65,20 @@ var WeatherForecastList = React.createClass({
 				};
 			});
 
-			return newData.map((day) => {
+			return newData.map((day, item) => {
 				day.date_text = moment.unix(day.dt).format('dddd, MMM D');
-				return <WeatherForecastDay tempType={tempType} key={day.dt} {...day}/>
+
+				if ( item === 0 ) {
+					return (
+						<div key={day.dt}>
+							<h4 className="forecast-title">Forecast for next 5 days</h4>
+							<WeatherForecastDay tempType={tempType} {...day}/>
+						</div>
+					);
+				}else{
+					return <WeatherForecastDay tempType={tempType} key={day.dt} {...day}/>
+				}
+
 			});
 		};
 
