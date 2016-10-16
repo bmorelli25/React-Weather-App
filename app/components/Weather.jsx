@@ -26,7 +26,7 @@ var Weather = React.createClass({
 
     openWeatherMap.getWeather('weather', location).then(currentWeather => {
       this.setState({
-        location: currentWeather.name || location,
+        location: currentWeather.name.concat(", ",currentWeather.sys.country) || location,
         temp: currentWeather.main.temp,
         condition: currentWeather.weather[0],
         isLoading: false
