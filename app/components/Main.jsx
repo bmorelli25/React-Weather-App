@@ -14,6 +14,9 @@ const Main = React.createClass({
 
   updateTempType( tempType ) {
     this.setState( { tempType } );
+    if ( localStorage ) {
+      localStorage.setItem('react-weather-app.temperature', tempType );
+    }
   },
 
 
@@ -26,7 +29,7 @@ const Main = React.createClass({
         } );
       }
 
-      return child;      
+      return child;
     } );
 
     return (
