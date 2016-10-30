@@ -8,10 +8,8 @@ var ErrorModal = require('./ErrorModal.jsx');
 
 var Weather = React.createClass({
   getInitialState: function () {
-    var tempType = (localStorage) ? localStorage.getItem('react-weather-app.temperature') : 'F'
     return {
-      isLoading: false,
-      tempType: tempType || 'F'
+      isLoading: false
     }
   },
   handleSearch: function (location) { //function that is called by WeatherForm.jsx's 'this.props.onSearch'
@@ -38,12 +36,6 @@ var Weather = React.createClass({
       });
     });
   },
-  handleTempChange: function (tempType) {
-    if (localStorage) localStorage.setItem('react-weather-app.temperature', tempType)
-    this.setState({
-      tempType: tempType
-    });
-  },
   componentDidMount: function () {
     var location = this.props.location.query.location;
 
@@ -64,7 +56,8 @@ var Weather = React.createClass({
   render: function () {
 
     //get our variables from state so they can be passed as props
-    var {isLoading, temp, tempType, condition, location, errorMessage} = this.state;
+    var {isLoading, temp, condition, location, errorMessage} = this.state;
+    const tempType = this.props.tempType;
 
     function renderMessage () {
       if (isLoading) {
@@ -107,9 +100,9 @@ var Weather = React.createClass({
     return (
       <div>
         <h1 className="text-center page-title">Get Weather</h1>
-        <WeatherForm onSearch={this.handleSearch} onTypeChange={this.handleTempChange} tempType={tempType} />
+        <WeatherForm onSearch={this.handleSearch} onTypeChange={this.props.updateTempType} tempType={this.props.tempType} />
         {renderMessage()}
-        {location && <WeatherForecastList location={location} tempType={tempType} />}
+        {location && <WeatherForecastList location={location} tempType={this.props.tempType} />}
         {renderError()}
 				{setBodyClass()}
       </div>

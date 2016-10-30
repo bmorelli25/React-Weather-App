@@ -18,7 +18,7 @@ var Nav = React.createClass({
 
           this.setState({
             currentLocation: location,
-            temp: this.props.tempType === 'F' ? temp : Number(((temp - 32) * (5/9)).toFixed(2)),
+            temp: temp,
     				condition: currentWeather.weather[0]
           });
         });
@@ -36,6 +36,8 @@ var Nav = React.createClass({
     }
   },
   render: function () {
+    let temp = this.state.temp;
+    temp = this.props.tempType === 'F' ? temp : Number(((temp - 32) * (5/9)).toFixed(2));
     return(
       <div className="top-bar">
         <div className="top-bar-left">
@@ -53,7 +55,7 @@ var Nav = React.createClass({
           </ul>
         </div>
         <div className="top-bar-middle">
-          {(this.state.currentLocation) ? `It is ${Math.round(this.state.temp)} degrees in ${this.state.currentLocation}` : ''}
+          {(this.state.currentLocation) ? `It is ${Math.round(temp)} degrees in ${this.state.currentLocation}` : ''}
         </div>
         <div className="top-bar-right">
           <form onSubmit={this.onSearch}>
