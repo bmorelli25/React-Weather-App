@@ -14,9 +14,11 @@ var Nav = React.createClass({
       const location = data.city;
       if (location !== '') {
         openWeatherMap.getWeather('weather', location).then(currentWeather => {
+          let temp = currentWeather.main.temp;
+
           this.setState({
             currentLocation: location,
-            temp: currentWeather.main.temp,
+            temp: this.props.tempType === 'F' ? temp : Number(((temp - 32) * (5/9)).toFixed(2)),
     				condition: currentWeather.weather[0]
           });
         });
