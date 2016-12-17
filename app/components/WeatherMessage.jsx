@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 
 export const conditionMap = {
-	'Clear': "Clear blue skies",
-	'Thunderstorm': "Stay in bed today.",
-	'Drizzle': "Grab a book and a cup of coffee",
-	'Extreme': "Dammit global warming.",
-	'Rain': "It's a beautiful sunny day. Just Kiddding. It's pouring",
-	'Snow': "Colder than your dating streak",
-	'Atmosphere': "Mist is in the air.",
+	'Clear': "Clear skies",
+	'Thunderstorm': "Thunderstorms and Lightning",
+	'Drizzle': "Drizzle",
+	'Extreme': "Extreme Weather. Use caution.",
+	'Rain': "Rain",
+	'Snow': "Snow",
+	'Atmosphere': "Fog/Mist",
 	'Clouds': "Cloudy with a chance of meatballs"
 };
 
