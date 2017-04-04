@@ -1,7 +1,7 @@
-###React Weather Application
+### React Weather Application
 **Find the current weather and 5 day forecast of any city on earth with this simple little web app**
 
-###**[Live Demo](http://still-springs-11020.herokuapp.com/)** (needs to be updated. Run locally for most recent demo)
+##### [Live Demo](http://still-springs-11020.herokuapp.com/) on Heroku
 
 -------------
 
@@ -16,8 +16,8 @@ Simple [React](https://facebook.github.io/react/) web application written with j
 
 -------------
 
-###HACKTOBERFEST!
-This project was featured during DigitalOcean's 2016 HACKTOBERFEST! Thanks to everyone who contributed in both discussion and coding! 
+### HACKTOBERFEST!
+**This project was featured during DigitalOcean's 2016 HACKTOBERFEST!** Thanks to everyone who contributed in both discussion and coding! 
 
 -------------
 
