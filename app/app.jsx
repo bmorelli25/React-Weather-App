@@ -8,11 +8,7 @@ var About = require('About');
 var Examples = require('Examples');
 
 //Load foundation using chained loaders
-// THIS ISNT WORKING ANY LONGER FOR SOME REASON
-// require('style!css!foundation-sites/dist/js/foundation.min.css')
-// $(document).foundation();
-// LOAD WITH jQUERY INSTEAD:
-import foundation from './styles/foundation';
+require('style!css!foundation-sites/dist/css/foundation.min.css')
 $(document).foundation();
 
 //app css
