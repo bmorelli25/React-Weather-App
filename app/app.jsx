@@ -13,6 +13,7 @@ var Examples = require('Examples');
 // $(document).foundation();
 // LOAD WITH jQUERY INSTEAD:
 import foundation from './styles/foundation';
+$(document).foundation();
 
 //app css
 require('style!css!sass!applicationStyles')
