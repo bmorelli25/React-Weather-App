@@ -7,9 +7,8 @@ var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
 
-//Load foundation using chained loaders
-require('style!css!foundation-sites/dist/foundation.min.css')
-$(document).foundation();
+// LOAD Foundation WITH jQUERY INSTEAD:
+import Foundation from './styles/foundation';
 
 //app css
 require('style!css!sass!applicationStyles')
