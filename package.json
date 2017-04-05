@@ -4,7 +4,7 @@
   "description": "Simple React App",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
     "test": "mocha -w app/tests/setup.js app/tests/**/*.spec.js",
     "start": "node server.js"
   },
