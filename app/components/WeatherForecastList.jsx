@@ -82,8 +82,11 @@ var WeatherForecastList = React.createClass({
 			});
 		};
 
+		var renderTitle = () => <h4 className="forecast-title">Forecast for next 5 days</h4>;
+
 		return (
 			<div>
+				{renderTitle()}
 				{this.renderError()}
 				{renderDays()}
 			</div>
