@@ -1,4 +1,4 @@
-var React = require('react');
+import React, { useState, useEffect } from 'react';
 
 var WeatherForm = require('./WeatherForm.jsx');
 var WeatherMessage = require('./WeatherMessage.jsx');
@@ -13,37 +13,33 @@ var Weather = React.createClass({
     }
   },
   handleSearch: function (location) { //function that is called by WeatherForm.jsx's 'this.props.onSearch'
-
-    this.setState({
-      isLoading: true,
-      errorMessage: undefined,
-      location: undefined,
-      temp: undefined,
-      condition: undefined
-    });
-
+		
+		const [isLoading, setIsLoading] = useState(true);
+		const [errorMessage, setErrorMessage] = useState(undefined);
+		const [location, setLocation] = useState(undefined);
+		const [temp, setTemp] = useState(undefined);
+		const [condition, setCondition] = useState(undefined);
+		
     openWeatherMap.getWeather('weather', location).then(currentWeather => {
-      this.setState({
-        location: (currentWeather.name + ", " + currentWeather.sys.country) || location,
-        temp: currentWeather.main.temp,
-        condition: currentWeather.weather[0],
-        isLoading: false
-      });
+			setIsLoading(false);
+			setLocation(currentWeather.name + ", " + currentWeather.sys.country) || location);
+			setTemp(currentWeather.main.temp);
+			setCondition(currentWeather.weather[0]);
     }, e => {
-      this.setState({
-        isLoading: false,
-        errorMessage: e.message
-      });
+			setIsLoading(false);
+			setErrorMessage(e.message);
     });
   },
-  componentDidMount: function () {
-    var location = this.props.location.query.location;
+	
+	useEffect(() => {
+		setLocation(this.props.location.query.location);
 
-    if (location && location.length > 0) {
+		if (location && location.length > 0) {
       this.handleSearch(location);
       window.location.hash = '#/'; //reset url after the search
     }
-  },
+	}
+	
   componentWillReceiveProps: function (newProps) { //called any time components props get updated
     //we can pull updated location and make the search just like above
     var location = newProps.location.query.location;
